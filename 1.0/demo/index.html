@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>TbVideoPlayerH5的demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
+    <style>
+    #video {
+        width: 550px;
+        height: 330px;
+    }
+    </style>
+</head>
+<body>
+<h2>TbVideoPlayerH5的demo</h2>
+
+<div id="video"></div>
+
+<input type="button" value="销毁" id="destory">
+<input type="button" value="暂停" id="pause">
+<input type="button" value="播放" id="play">
+
+<script>
+    var S = KISSY;
+    if (S.Config.debug) {
+        var srcPath = "../../";
+        S.config({
+            packages:[
+                {
+                    name:"gallery/tb-video-player-h5",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('gallery/tb-video-player-h5/1.0/index', function (S, TbVideoPlayerH5) {
+        var _player = new TbVideoPlayerH5({
+            container: '#video',
+            vid: '10548613',
+            callback: function(player){
+                console.log(player);
+            },
+            poster: 'http://img01.taobaocdn.com/tps/i1/T1AX1XFf8aXXcXDmLh-460-290.png'
+        });
+        S.one('#destory').detach('click').on('click', function(){
+            _player.destroy();
+        });
+        S.one('#pause').detach('click').on('click', function(){
+            _player.pause();
+        });
+        S.one('#play').detach('click').on('click', function(){
+            _player.play();
+        });
+    })
+</script>
+</body>
+</html>

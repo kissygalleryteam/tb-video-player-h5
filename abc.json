@@ -1,0 +1,16 @@
+{
+    "name": "tb-video-player-h5",
+    "comName":"TbVideoPlayerH5",
+    "version": "1.0",
+    "desc": "淘宝视频播放器-H5，KISSY gallery组件",
+    "tag":"video,player,h5",
+    "githubName":"xiaosong",
+    "author": {
+        "name": "岳松",
+        "email": "yuesong.xys@taobao.com",
+        "page": "https://github.com/xiaosong"
+    },
+    "cover": "http://gtms03.alicdn.com/tps/i3/T1hYGxFsBeXXcKOJIV-548-328.png",
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
+}
