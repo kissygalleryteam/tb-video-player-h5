@@ -1,7 +1,7 @@
 {
     "name": "tb-video-player-h5",
     "comName":"TbVideoPlayerH5",
-    "version": "1.0",
+    "version": "1.1",
     "desc": "淘宝视频播放器-H5，KISSY gallery组件",
     "tag":"video,player,h5",
     "githubName":"xiaosong",
