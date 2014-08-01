@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>TbVideoPlayerH5的demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css">
+    <style>
+    #video {
+        width: 550px;
+        height: 330px;
+    }
+    </style>
+<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/tb-video-player-h5/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+<body>
+<h2>TbVideoPlayerH5的demo</h2>
+
+<div id="video"></div>
+
+<input type="button" value="渲染" id="render">
+<input type="button" value="播放" id="play">
+<input type="button" value="暂停" id="pause">
+<input type="button" value="销毁" id="destory">
+
+<script>
+    var S = KISSY;
+    if (S.Config.debug) {
+        var srcPath = "../../";
+        S.config({
+            packages:[
+                {
+                    name:"kg/tb-video-player-h5",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('kg/tb-video-player-h5/2.0.0/index', function (S, TbVideoPlayerH5) {
+        var _player = new TbVideoPlayerH5({
+            container: '#video',
+            vid: '10548613',
+            callback: function(player){
+                console.log(_player.get('el'));
+            },
+            poster: 'http://img01.taobaocdn.com/tps/i1/T1AX1XFf8aXXcXDmLh-460-290.png'
+        });
+        console.log(_player.get('videoUrl'));
+        S.one('#render').detach('click').on('click', function(){
+            _player.render();
+        });
+        S.one('#destory').detach('click').on('click', function(){
+            _player.destroy();
+        });
+        S.one('#pause').detach('click').on('click', function(){
+            _player.pause();
+        });
+        S.one('#play').detach('click').on('click', function(){
+            _player.play();
+        });
+    })
+</script>
+</body>
+</html>
