@@ -45,7 +45,8 @@
             callback: function(player){
                 console.log(_player.get('el'));
             },
-            poster: 'http://img01.taobaocdn.com/tps/i1/T1AX1XFf8aXXcXDmLh-460-290.png'
+            poster: 'http://img01.taobaocdn.com/tps/i1/T1AX1XFf8aXXcXDmLh-460-290.png',
+            seekTo: 20
         });
         console.log(_player.get('videoUrl'));
         S.one('#render').detach('click').on('click', function(){
