@@ -81,6 +81,7 @@ KISSY.add(function (S, Node, Base, DOM) {
             }
 
             var _timer,
+                _has_seeked = false,
                 _video_node = DOM.create('<video>', {
                 width: self.get('width'),
                 height: self.get('height'),
@@ -104,6 +105,14 @@ KISSY.add(function (S, Node, Base, DOM) {
                     clearInterval(_timer);
                     self.hasAttr('el') ? self.set('el', S.one('#' + _guid)) : self.addAttr('el').set('el', S.one('#' + _guid));
                     self.get('callback')(DOM.get('#' + _guid));
+                    if (self.get('seekTo')) {
+                        $(_video_node).on("canplay", function(e){
+                            if(!_has_seeked){
+                                _video_node.currentTime = self.get('seekTo');
+                                _has_seeked = true;
+                            }
+                        })
+                    }
                 }
             }, 20);
         }
